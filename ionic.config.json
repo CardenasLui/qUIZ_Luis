@@ -1,0 +1,7 @@
+{
+  "name": "ea88",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

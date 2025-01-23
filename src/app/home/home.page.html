@@ -1,0 +1,73 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Formulario para Eventos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-list>
+    <ion-item>
+      <ion-label>Nombre (Evento):</ion-label>
+      <ion-input type="text" [(ngModel)]="nombre"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Fecha (inicio):</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="fechainicio"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>Fecha (Final):</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="fechafinal"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>Ubicacion: </ion-label>
+      <ion-input type="text" [(ngModel)]="ubicacion"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Encargado: </ion-label>
+      <ion-input type="text" [(ngModel)]="encargado"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Telefono: </ion-label>
+      <ion-input type="number" [(ngModel)]="telefono"></ion-input>
+    </ion-item>
+
+    <ion-button (click)="guardar()">Guardar</ion-button>
+  </ion-list>
+
+
+  <table border="5" style="margin-top: 20px;width: 100%;text-align: left;">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>nombre</th>
+        <th>fechai</th>
+        <th>fechaf</th>
+        <th>ubicacion</th>
+        <th>encargado</th>
+        <th>telefono</th>
+        <th>completado</th> <!-- Added missing header for actions column -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *NgFor="let item of lista">
+        <td>{{item.id}}</td>
+        <td>{{item.nombre}}</td>
+        <td>{{item.fechai}}</td>
+        <td>{{item.fechaf}}</td>
+        <td>{{item.ubicacion}}</td>
+        <td>{{item.encargado}}</td>
+        <td>{{item.telefono}}</td>
+        <td>
+          <input type="checkbox" [(ngModel)]="item.completado">
+        </td>
+        <td><ion-button (click)="eliminar(item.id)">Eliminar</ion-button></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+</ion-content>
